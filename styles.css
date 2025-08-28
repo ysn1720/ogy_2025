@@ -1,0 +1,296 @@
+:root {
+  --a: rgb(255, 255, 255); /* background */
+  --b:rgb(86, 86, 86);  /* text */  /* link */
+  --c: gray;  /* figcaption */
+}
+
+
+* {
+  margin: 0;
+}
+
+
+
+body {
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  text-align: left;
+  font-size: 12px;
+  color: var(--b);
+background-color: Var(--a);
+  justify-content: center; 
+  letter-spacing: 1px;
+
+}
+
+.fullscreen-link {
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100vw;     
+  height: 100vh;    
+  z-index: 9999;      
+  text-decoration: none;
+  background: transparent;
+  color: transparent;
+}
+
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start; 
+
+  gap: 5px;
+  text-align: left;
+}
+
+.address {
+  text-align: left;
+}
+
+.logo img{
+  filter: grayscale(1);
+  width: 55px; 
+  mix-blend-mode: multiply;
+
+}
+
+.gmap {
+margin-top: 5px;
+}
+.gmap a{
+  border: dotted 1px var(--b);
+  /* border-radius: 7px; */
+  padding: 3px 7px 5px 8px;
+
+}
+
+.container {
+  /* background-color: aqua; */
+  text-align: center;
+  margin:0 auto;
+  margin-top: 30px;
+  max-width: 550px;
+  width: 100%;
+
+}
+
+@media screen and (max-width: 525px) {
+  .container {
+width:260px;
+  }
+}
+
+
+/* slide */
+
+.route_container {
+  display: flex;
+  flex-direction: r; /* だいじ */
+  align-items: center;
+justify-content: center;   
+  gap:25px;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-bottom: 70px;
+
+
+}
+
+@media screen and (max-width: 525px) {
+  .route_container {
+    gap:50px;
+  }
+}
+
+
+.A, .B {
+  margin-bottom: 7px;
+}
+.route_A, .route_B {
+width: 250px;
+height: 250px;
+display: inline-block; 
+
+}
+
+.taxi_info {
+
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media screen and (max-width: 525px) {
+  .taxi_info {
+width:260px;
+  }
+}
+
+
+.slideshow {
+  width: 250px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+figure {
+  width: 250px;
+  margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 7px;
+  opacity: 1;
+}
+
+figcaption {
+  text-align: left;
+  padding: 4px;
+  font-size:12px;
+  color: var(--c);
+}
+
+.arrow {
+  position: absolute;
+  top: 130px;
+  font-size: 24px;
+
+  color: var(--a);
+  padding: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 5px;
+}
+
+.arrow.right {
+  right: 5px;
+}
+
+@media screen and (max-width: 525px) {
+
+  }
+
+
+
+
+
+a {
+  text-decoration: none;
+  color: var(--b);
+}
+
+.border {
+  border-top: 1px solid var(--c);
+  width: 100%;   
+  margin: 30px 0;
+}
+
+.border-top {
+  border-top: 1px solid var(--c);
+  width: 100%;  
+  margin-top:15px;
+  margin-bottom: 30px; 
+}
+
+/* .border-line  {
+  font-family: monospace; 
+  color: var(--b);
+  white-space: nowrap; 
+  margin: 20px 0;
+  overflow: hidden; 
+  white-space: nowrap;
+} */
+
+.map {
+  position: relative;
+}
+
+.map::after {
+  content: "";
+  position: fixed;   
+  width: 280px;
+  height: 350px;
+bottom: -20px;      
+  right: 10px; 
+  background-image: url("bau/img/ogy_map-05.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -100;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  transform: rotate(2deg);
+}
+
+
+@media screen and (max-width: 525px) {
+  .map::after {
+    width: 220px;
+    height: 450px;
+bottom: -100px;      
+    right: 20px; 
+
+  }
+}
+
+
+  
+.today {
+  position: fixed;   
+  width: 20px;
+  height: 250px;
+  top: 40%;    
+  right: 25px;      
+  z-index: 100;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  font-size: 10px;  
+  writing-mode: vertical-rl;
+  pointer-events: none;
+}
+
+
+@media screen and (max-width: 525px) {
+  .toda{
+    top: 40%;     
+    right: 25px; 
+  }
+}
+
+
+
+
+
+.email {
+  /* margin-top: 60px; */
+  margin-bottom: 80px;
+  text-align: left;
+}
+
+@media screen and (max-width: 525px) {
+  .email {
+width:250px;
+margin: 0 auto;
+margin-bottom: 240px;
+  }
+}

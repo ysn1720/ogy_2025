@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="bau/img/favicon.ico">
+<title>OGY｜how to visit</title>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+  <div class="logo">
+<a href="index.html">
+<img src="bau/img/ogy.png"></a>
+</div>
+
+
+<div class="border-top"></div>
+
+<div class="address"> 〒604-0824<br>
+京都府京都市中京区扇屋町664−1<br>
+664-1 OGIYACHO NAKAGYOKU KYOTO 
+</div>
+
+
+<div class="gmap">
+<a href="https://maps.app.goo.gl/1ijbcu2To3bKiaxx6" target="_blank">google map</a>
+</div>
+
+<!-- <img src="bau/img/testmap.png" style="mix-blend-mode: multiply; width="350px; text-align: center; margin: 0 auto;" > -->
+
+</div>
+<div class="border"></div>
+
+
+<!-- slide -->
+
+<div class="route_container">
+<div class="route_A">
+
+<div class="A">
+堺町通よりお越しのかた<br> 
+from Sakaimachi st.
+</div>
+
+<div class="slideshow">
+<div class="slides">
+
+<figure>
+<img src="bau/img/sakaimachi_1.jpg" alt="sakaimachi1">
+<figcaption>1. 押小路堺町を南に進むと左手にコインパーキングがあります。</figcaption>
+</figure>
+
+<figure>
+<img src="bau/img/sakaimachi_2.jpg" alt="sakaimachi2">
+<figcaption>2. コインパーキングが右手になるように、小道を進みます。</figcaption>
+</figure>
+
+<figure>
+<img src="bau/img/ogy.jpg" alt="sakaimachi3">
+<figcaption>3. 突き当たりを右に曲がると到着です。右手に見える建物がOGYです。</figcaption>
+</figure>
+</div>
+
+<!-- arrow -->
+<div class="arrow left">←</div>
+<div class="arrow right">→</div>
+</div>
+</div> <!-- route A close -->
+
+
+<div class="route_B">
+
+  <div class="B">
+御池通よりお越しのかた<br>
+from Oike st.　
+</div>
+
+<div class="slideshow">
+<div class="slides">
+
+<figure>
+<img src="bau/img/oike_1.jpg" alt="画像1">
+<figcaption>1. お寺とスポーツ量販店の間の小道に入ります。</figcaption>
+</figure>
+
+<figure>
+<img src="bau/img/ogy.jpg" alt="画像3">
+<figcaption>2. 到着です。左手の建物がOGYです。</figcaption>
+</figure>
+</div>
+
+
+<!-- arrow -->
+<div class="arrow left">←</div>
+<div class="arrow right">→</div>
+</div>
+</div><!-- route B close -->
+
+</div><!-- route_container close -->
+
+
+
+
+<div class="border"></div>
+    <div class="taxi_info">
+* 市営地下鉄でお越しの場合は、烏丸御池駅（1番出口）から徒歩5分です。<br> 
+if coming by subway, it's a 5-minute walk from Karasuma Oike Station (Exit 1).
+</div>
+<br> 
+
+<div class="taxi_info">
+* タクシーには、「堺町御池北側（さかいまち・おいけ・きたがわ）」と伝えます。　<br> 
+you can ask your taxi driver "Sakaimachi Oike Kitagawa" to get OGY.<br>
+</div>
+
+<div class="border"></div>
+
+
+<div class="email">
+  何かありましたら、本URLを送った本人まで、お問い合わせください。<br>
+  for any inquiries, please reach out to the sender of this URL.
+
+  
+</div>
+
+
+</div>  
+
+<div class="map"></div>
+<div class="today"></div>
+
+<script>
+
+    // slide
+document.querySelectorAll(".slideshow").forEach(slideshow => {
+  const slides = slideshow.querySelector(".slides");
+  const figures = slides.querySelectorAll("figure");
+  let current = 0;
+
+  // arrows
+  const leftArrow = slideshow.querySelector(".arrow.left");
+  const rightArrow = slideshow.querySelector(".arrow.right");
+
+  const updateSlide = () => {
+    const slideWidth = slideshow.clientWidth;
+    slides.style.transform = `translateX(-${current * slideWidth}px)`;
+
+    // arrows switch
+    if(leftArrow) leftArrow.style.display = current === 0 ? "none" : "block";
+    if(rightArrow) rightArrow.style.display = current === figures.length - 1 ? "none" : "block";
+  };
+
+  const nextSlide = () => {
+    if (current < figures.length - 1) {
+      current++;
+      updateSlide();
+    }
+  };
+
+  const prevSlide = () => {
+    if (current > 0) {
+      current--;
+      updateSlide();
+    }
+  };
+
+  // event
+  if(leftArrow) leftArrow.addEventListener("click", prevSlide);
+  if(rightArrow) rightArrow.addEventListener("click", nextSlide);
+
+  // swipe
+  let startX = 0;
+  slideshow.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+  slideshow.addEventListener("touchend", e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if(diff > 50) prevSlide();
+    if(diff < -50) nextSlide();
+  });
+
+  // default
+  updateSlide();
+});
+
+
+
+// today
+
+  const todayDiv = document.querySelector('.today');
+  const today = new Date();
+  const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+  todayDiv.textContent = `today is ${today.toLocaleDateString('en-US', options)}`;
+
+
+
+    </script>
+    
+
+
+
+</body>
+</html>
